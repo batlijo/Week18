@@ -1,0 +1,109 @@
+Class Objectives:
+- Learn about non-relational Data stores
+- MongoDB
+- Prep for homework
+
+ - learning library
+
+ MongoDB is the most popular noSQL database
+ - it uses a document oriented model as opposed to a table-based relational model [SQL]
+ - MongoDB stores data in BSON format [effectively compressed JSON]
+ - move more towards a document based abstraction
+ - the trade off for non-relational is space, storing more bits
+ - SQL relies on joins to combine relevant data
+
+ Document Database [noSQL]
+ - noSQL Databases on the otherhand are effectively JSONS
+ - easy to implement
+ - a collection is a bunch of documents that map to a table
+ - row and table are equivalent to a document
+
+
+ ACTIVITY 1 INSTRUCTIONS
+ - creating a database, if the name hasn't been used it will be created automatically and if it's a database already in use it will stick to that one
+ /* Query 1 - Creating dbs, inserting data and finding data
+ * -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/- */
+
+// Start up a new database by switching to it.
+// NOTE: The db does not exist until you create a collection.
+use lessondb
+
+// Show the current db by running db.
+db
+
+// Insert data into the lessondb database with this command.
+// NOTE: This will create the collection automatically,
+// ALSO, TAKE NOTE: the contents of the insert are basically a JS object,
+// and include an array.
+db.places.insert({"continent": "Africa", "country":"Morocco", "majorcities": ["Casablanca", "Fez", "Marrakech"]})
+
+// As a class, come up with 3-5 more countries and
+// insert them into the db using the same syntax as above.
+
+// Observe where the data was entered in the MongoDB instance (in mongod)
+
+// Find all data in a Collection with db.[COLLECTION_NAME].find()
+// NOTE: the MongoDB _id was created automatically.
+// This id is specific for each doc in the collection.
+db.places.find()
+
+// Adding .pretty() makes the data more readable.
+db.places.find().pretty()
+
+// Find specific data by matching a field.
+db.places.find({"continent": "Africa"})
+db.places.find({"country": "Morocco"})
+
+// Try a few queries with the examples we came up with as a class.
+// Also, pick something that will find more than one entry
+// so we can see how it will return all matches.
+
+// Find specific data by matching an _id.
+db.places.find({_id:[COPY AN OBJECTID FROM THE PREVIOUS FIND RESULTS]})
+
+// Example: db.places.find({_id: ObjectId("5416fe1d94bcf86cd785439036")})
+
+this is what my command line looked like:
+> use studentsdb
+switched to db studentsdb
+> db
+studentsdb
+> db.names.insert({"name":"Batli","row number": "row number", "operating system": "mac", "hobbies": ["photography", "yoga", "reading", "puppies"]})
+WriteResult({ "nInserted" : 1 })
+> db.names.find()
+{ "_id" : ObjectId("5a71270c7b3e7c010a21dc62"), "name" : "Batli", "row number" : "row number", "operating system" : "mac", "hobbies" : [ "photography", "yoga", "reading", "puppies" ] }
+
+THIS MAKES IT PRETTY!!!!
+	"_id" : ObjectId("5a71270c7b3e7c010a21dc62"),
+	"name" : "Batli",
+	"row number" : "row number",
+	"operating system" : "mac",
+	"hobbies" : [
+		"photography",
+		"yoga",
+		"reading",
+		"puppies"
+	]
+}
+>
+
+ACTIVITY 2
+
+// A. Use the command line to create a classroom database.
+// Insert entries for yourself and the people in your row in a students collection.
+// Each document should have:
+
+// 1. A field of name with the person's name.
+// 2. A field of rownumber which will contain the row number that they are in.
+// 3. A field of os which will contain the Operating System
+//    of the computer they are using: 'Mac', 'Win', etc
+// 4. A field of hobbies with an array of the hobbies the person likes to do.
+
+
+
+// B. Use find commands to get:
+// 1. A list of everyone in your row.
+
+// 2. An entry for a single person.
+
+// 3. The entries for all the Mac users in your row.
