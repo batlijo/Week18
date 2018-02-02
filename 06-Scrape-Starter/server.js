@@ -6,7 +6,7 @@ var cheerio = require("cheerio");
 var request = require("request");
 
 // Make a request call to grab the HTML body from the site of your choice
-request("http://www.nytimes.com", function(error, response, html) {
+request("http://facebook.com", function(error, response, html) {
 
   // Load the HTML into cheerio and save it to a variable
   // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
