@@ -1,0 +1,12 @@
+this goes in the mongo db shell:
+
+db.animals.find().sort({_id:1})
+
+db.animals.find().sort({numlegs:1})
+
+SORTING MONGO ^^
+
+Routing:
+router is what takes the event and maps it into some sort of action... so /index interprets as give me the first page there is no other path that I have here so I'll use THIS
+
+router takes request based on your logic and its going to try to match...think of it as giant if statement because that is how it is implemented

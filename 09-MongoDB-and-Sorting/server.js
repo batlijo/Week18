@@ -13,10 +13,10 @@ var app = express();
 var databaseUrl = "zoo";
 var collections = ["animals"];
 
-// Use mongojs to hook the database to the db variable
+// Use mongojs to hook the database to the db variable. THIS IS A CONSTRUCTOR !!!!
 var db = mongojs(databaseUrl, collections);
 
-// This makes sure that any errors are logged if mongodb runs into an issue
+// This makes sure that any errors are logged if mongodb runs into an issue, aka event error
 db.on("error", function(error) {
   console.log("Database Error:", error);
 });
@@ -45,15 +45,13 @@ app.get("/all", function(req, res) {
 
 // 3: Name: Send JSON response sorted by name in ascending order, e.g. GET "/name"
 app.get("/name", function(req, res) {
-  db.animals.find().sort({_id:1}), function(err,data) {
-    if(err) {
-      console.log(err);
-    }
+  db.animals.find().sort({name:1}), function(err,data) {
+  };
   };
 });
 // 4: Weight: Send JSON response sorted by weight in descending order, , e.g. GET "/weight"
 app.get("/weight", function(req, res) {
-  db.animals.find().sort({numlegs:1}), function(err,data) {
+  db.animals.find().sort({weight:-1}), function(err,data) {
     if(err) {
       console.log(err);
     }
