@@ -1,1 +1,16 @@
 mongoose is like sequel like constraints to mongo, which is ironic bc the whole point of mongo is to avoid that...
+
+
+MONGOOSE IS TO FIX PROBLEMS, all data is relative and their is a hierarchy so mongo is non-relational and mongoose is relational.
+
+
+
+activity 18 and 19 instructions: ASK TOM!!!
+* Open `server.js` and update the `/populate` route to return Users populated with notes as JSON to the client.
+
+
+WHAT IS A SCHEMA?
+The term "schema" refers to the organization of data as a blueprint of how the database is
+constructed (divided into database tables in the case of relational databases).
+
+specify the ref and tell it what connection it is
